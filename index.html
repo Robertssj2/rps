@@ -13,16 +13,15 @@
                 let attack = options[Math.floor(Math.random() * options.length)];
                 return attack;
             }
-
-            const computerSelection = computerPlay();
+            
             /*
                 userPlay function is doing something weird on
                 the 'else' portion - after giving an unacceptable
                 response, the user is given the choice prompt 
-                again, but if thy enter an acceptable response the
+                again, but if they enter an acceptable response the
                 returned result is 'undefined'
             */
-           
+
             function userPlay() {
                 let choice = prompt('Rock, Paper, or Scissors?');
                 choice = choice.toLowerCase();
@@ -30,9 +29,12 @@
                     return choice;
                 } else {
                     alert('Choose Again');
-                    userPlay();
+                    return userPlay();
                 }
             }
+
+            const computerSelection = computerPlay();
+            const userSelection = userPlay();
 
 
         </script>
