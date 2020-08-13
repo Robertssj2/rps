@@ -9,18 +9,10 @@
         <script>
 
             function computerPlay() {
-                let options = ['Rock', 'Paper', 'Scissors'];
+                let options = ['rock', 'paper', 'scissors'];
                 let attack = options[Math.floor(Math.random() * options.length)];
                 return attack;
             }
-            
-            /*
-                userPlay function is doing something weird on
-                the 'else' portion - after giving an unacceptable
-                response, the user is given the choice prompt 
-                again, but if they enter an acceptable response the
-                returned result is 'undefined'
-            */
 
             function userPlay() {
                 let choice = prompt('Rock, Paper, or Scissors?');
@@ -36,7 +28,36 @@
             const computerSelection = computerPlay();
             const userSelection = userPlay();
 
+            function cupCheck() {
+            console.log(userSelection);
+            console.log(computerSelection);
+            }
 
+            function playRound(userSelection, computerSelection) {
+                computerPlay();
+                userPlay();
+                cupCheck();
+                 if (userSelection === computerSelection) {
+                    return 'What are the odds?!  It\'s a tie!';
+                } else if (userSelection === 'rock' && computerSelection === 'scissors') {
+                    return 'User Wins!  Rock beats Scissors';
+                } else if (userSelection === 'paper' && computerSelection === 'rock') {
+                    return 'User Wins!  Paper beats Rock';
+                } else if (userSelection === 'scissors' && computerSelection === 'paper') {
+                    return 'User Wins!  Scissors beats Paper';
+                } else if (userSelection === 'rock' && computerSelection === 'paper') {
+                    return 'Computer Wins!  Paper beats Rock';
+                } else if (userSelection === 'paper' && computerSelection === 'scissors') {
+                    return 'Computer Wins!  Scissors beat Paper';
+                } else if (userSelection === 'scissors' && computerSelection === 'rock') {
+                    return 'Computer Wins!  Rock beats Scissors';
+                }
+            }
+            
+
+            /* function game(){
+              
+            } */
         </script>
 
     </body>
