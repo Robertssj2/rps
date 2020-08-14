@@ -25,8 +25,8 @@
                 }
             }
 
-            let computerSelection
-            let userSelection
+            let computerSelection;
+            let userSelection;
 
             function cupCheck() {
             console.log(`User: ${userSelection}`);
@@ -38,32 +38,59 @@
                  if (userSelection === computerSelection) {
                     return 'It\'s a tie!  What are the odds?!';
                 } else if (userSelection === 'rock' && computerSelection === 'scissors') {
+                    u++;
                     return 'Rock SMASHES Scissors!  User Wins!';
                 } else if (userSelection === 'paper' && computerSelection === 'rock') {
+                    u++;
                     return 'Paper SMOTHERS Rock!  User Wins!';
                 } else if (userSelection === 'scissors' && computerSelection === 'paper') {
+                    u++;
                     return 'Scissors SLICE Paper!  User Wins!';
                 } else if (userSelection === 'rock' && computerSelection === 'paper') {
+                    c++;
                     return 'Paper SMOTHERS Rock!  Computer Wins!';
                 } else if (userSelection === 'paper' && computerSelection === 'scissors') {
+                    c++;
                     return 'Scissors SLICE Paper!  Computer Wins!';
                 } else if (userSelection === 'scissors' && computerSelection === 'rock') {
+                    c++;
                     return 'Rock SMASHES Scissors!  Computer Wins!';
                 }
             }
 
             function playRound() {
+                console.log('');
                 userSelection = userPlay();
                 computerSelection = computerPlay();
                 return referee(userSelection, computerSelection);
             }
 
+            let u;
+            let c;
+
+            function scoreBoard(u, c) {
+                console.log('');
+                console.log('FINAL SCORES:')
+                console.log(`User: ${u} points`);
+                console.log(`Computer: ${c} points`);
+                if (u > c) {
+                    return 'User Wins!';
+                } else if (u < c ) {
+                    return 'Computer Wins!';
+                } else if (u == c ) {
+                    return 'Whoa! It\'s a tie!';
+                }
+            }
+
             function game(){
+                u = 0;
+                c = 0;
                 console.log(playRound());
                 console.log(playRound());
                 console.log(playRound());
                 console.log(playRound());
-                console.log(playRound());        
+                console.log(playRound());
+                console.log (scoreBoard(u, c));   
             }
 
         </script>
